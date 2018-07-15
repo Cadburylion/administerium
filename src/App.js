@@ -5,6 +5,7 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import Header from './components/header';
 import Signin from './components/auth/signin';
 import Signup from './components/auth/signup';
+import Signout from './components/auth/signout';
 import BannedList from './components/banned-list';
 import BannedSubmitForm from './components/banned-submit-form';
 
@@ -21,6 +22,7 @@ class App extends Component {
             <Header />
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact path="/signedout" component={Signout} />
             <Route exact path="/banned" component={BannedSubmitForm} />
             <Route exact path="/banned" component={BannedList} />
           </div>

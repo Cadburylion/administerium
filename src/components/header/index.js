@@ -9,8 +9,9 @@ class Header extends Component {
     return (
       <div className="header">
         <Link to="/">Welcome</Link>
-        <Link to="/signin">Signin</Link>
-        <Link to="/signup">Signup</Link>
+        <Link to="/signin">Sign In</Link>
+        <Link to="/signup">Sign Up</Link>
+        <Link to="/signedout">Sign Out</Link>
         <Link to="/banned">Banned List</Link>
       </div>
     );
