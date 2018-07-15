@@ -20,10 +20,10 @@ ReactDOM.render(
     <BrowserRouter>
       <App>
         <Route path="/signup" component={Signup} />
-        <Route path="/signin" compoonent={Signin} />
-        <Route path="/signout" compoonent={Signout} />
+        <Route path="/signin" component={Signin} />
+        <Route path="/signout" component={Signout} />
         <Route path="/banned" component={BannedSubmitForm} />
-        <Route path="/banned" compoonent={BannedList} />
+        <Route path="/banned" component={BannedList} />
       </App>
     </BrowserRouter>
   </Provider>,
