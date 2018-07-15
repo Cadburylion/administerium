@@ -6,6 +6,7 @@ import Header from './components/header';
 import Signin from './components/auth/signin';
 import Signup from './components/auth/signup';
 import BannedList from './components/banned-list';
+import BannedSubmitForm from './components/banned-submit-form';
 
 import store from './lib/store-create';
 
@@ -20,6 +21,7 @@ class App extends Component {
             <Header />
             <Route exact path="/signin" component={Signin} />
             <Route exact path="/signup" component={Signup} />
+            <Route exact path="/banned" component={BannedSubmitForm} />
             <Route exact path="/banned" component={BannedList} />
           </div>
         </BrowserRouter>

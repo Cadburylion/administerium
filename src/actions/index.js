@@ -81,19 +81,16 @@ export const signout = () => {
 
 export const addBannedUser = (formProps, callback) => async dispatch => {
   let toastId = null;
-  let user = {
-    name: 'Test User',
-    bannedBy: 'Matthew',
-    bannedFor: 'Bein rowdy',
-    date: 'December'
-  };
   let toastNotify = () =>
     (toastId = toast('Adding member to banned list...', { autoClose: false }));
 
   toastNotify();
-
+  console.log('formProps: ', formProps);
   try {
-    const response = await axios.post(`${config.baseURL()}/bannedUsers`, user);
+    const response = await axios.post(
+      `${config.baseURL()}/bannedUsers`,
+      formProps
+    );
 
     dispatch({ type: ADD_BANNED_USER, payload: response.data });
 

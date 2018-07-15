@@ -14,7 +14,6 @@ class BannedList extends Component {
   render() {
     return (
       <React.Fragment>
-        <button onClick={this.props.addBannedUser}>Add banned user</button>
         {this.props.bannedList
           ? this.props.bannedList.map(bannedUser => (
               <div key={bannedUser._id}>
