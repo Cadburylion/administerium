@@ -28,6 +28,12 @@ class BannedSubmitForm extends Component {
     };
 
     this.props.addBannedUser(formProps);
+    this.setState({
+      name: '',
+      bannedBy: '',
+      bannedFor: '',
+      date: ''
+    });
   };
 
   render() {
@@ -62,7 +68,7 @@ class BannedSubmitForm extends Component {
             id="date"
             label="date"
             type="text"
-            balue={this.state.date}
+            value={this.state.date}
             onChange={this.handleChange('date')}
             autoComplete="current-password"
           />
