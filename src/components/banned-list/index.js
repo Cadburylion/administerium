@@ -17,7 +17,18 @@ class BannedList extends Component {
         <button onClick={this.props.addBannedUser}>Add banned user</button>
         {this.props.bannedList
           ? this.props.bannedList.map(bannedUser => (
-              <div key={bannedUser._id}>{bannedUser.name}</div>
+              <div key={bannedUser._id}>
+                <div>{bannedUser.name}</div>
+                <span>
+                  <button
+                    onClick={() =>
+                      this.props.removeFromBannedList(bannedUser._id)
+                    }
+                  >
+                    Remove
+                  </button>
+                </span>
+              </div>
             ))
           : null}
       </React.Fragment>
@@ -33,5 +44,3 @@ export default connect(
   mapStateToProps,
   actions
 )(requireAuth(BannedList));
-
-// <BannedUser bannedUser={bannedUser} key={bannedUser._id} />

@@ -10,10 +10,11 @@ import {
   GET_BANNED_USERS_START,
   GET_BANNED_USERS_SUCCESS,
   GET_BANNED_USERS_FAILURE,
-  REMOVE_FROM_BANNED_LIST,
   GET_BANNED_USER_BY_NAME,
   GET_BANNED_USER_BY_NAME_ERROR,
-  REMOVE_FROM_BANNED_LIST_ERROR
+  REMOVE_FROM_BANNED_LIST_START,
+  REMOVE_FROM_BANNED_LIST_SUCCESS,
+  REMOVE_FROM_BANNED_LIST_FAILURE
 } from './types';
 
 // Actions
@@ -26,6 +27,18 @@ const getBannedUsersSuccess = bannedUsers => ({
 });
 const getBannedUsersFailure = error => ({
   type: GET_BANNED_USERS_FAILURE,
+  payload: error
+});
+
+const removeFromBannedListStart = () => ({
+  type: REMOVE_FROM_BANNED_LIST_START
+});
+const removeFromBannedListSuccess = res => ({
+  type: REMOVE_FROM_BANNED_LIST_SUCCESS,
+  payload: res
+});
+const removeFromBannedListFailure = error => ({
+  type: REMOVE_FROM_BANNED_LIST_FAILURE,
   payload: error
 });
 
@@ -118,19 +131,19 @@ export const removeFromBannedList = id => async dispatch => {
     }));
 
   toastNotify();
-
+  dispatch(removeFromBannedListStart());
   try {
     const response = await axios.delete(
       `${config.baseURL()}/bannedUsers/${id}`
     );
-    dispatch({ type: REMOVE_FROM_BANNED_LIST, payload: response.status });
+    dispatch(removeFromBannedListSuccess(response.status));
     toast.update(toastId, {
       render: 'Member removed from banned list',
       type: toast.TYPE.INFO,
       autoClose: 3000
     });
     dispatch(getBannedUsers());
-  } catch (e) {
-    dispatch({ type: REMOVE_FROM_BANNED_LIST_ERROR, payload: e });
+  } catch (error) {
+    dispatch(removeFromBannedListFailure(error));
   }
 };
