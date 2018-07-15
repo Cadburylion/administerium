@@ -1,8 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { Provider } from 'react-redux';
+import { Route, BrowserRouter } from 'react-router-dom';
+
+import App from './App.js';
+import Signin from './components/auth/signin';
+import Signup from './components/auth/signup';
+import Signout from './components/auth/signout';
+import BannedList from './components/banned-list';
+import BannedSubmitForm from './components/banned-submit-form';
+
+import store from './lib/store-create';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import './index.jcss';
+
+ReactDOM.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <App>
+        <Route path="/signup" component={Signup} />
+        <Route path="/signin" compoonent={Signin} />
+        <Route path="/signout" compoonent={Signout} />
+        <Route path="/banned" component={BannedSubmitForm} />
+        <Route path="/banned" compoonent={BannedList} />
+      </App>
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById('root')
+);
 registerServiceWorker();
