@@ -34,7 +34,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "yarn run start"
+    "heroku-postbuild": "yarn run build"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0"
