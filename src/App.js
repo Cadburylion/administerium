@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import { Link, Route, BrowserRouter } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 
 import Header from './components/header';
+import Signin from './components/auth/signin';
+import Signup from './components/auth/signup';
 import BannedList from './components/banned-list';
 
 import store from './lib/store-create';
@@ -16,8 +18,8 @@ class App extends Component {
         <BrowserRouter>
           <div className="App">
             <Header />
-            <Link to="/banned">Banned List</Link>
-            <Route exact path="/signin" component={BannedList} />
+            <Route exact path="/signin" component={Signin} />
+            <Route exact path="/signup" component={Signup} />
             <Route exact path="/banned" component={BannedList} />
           </div>
         </BrowserRouter>

@@ -10,6 +10,8 @@ class Header extends Component {
       <div className="header">
         <Link to="/">Welcome</Link>
         <Link to="/signin">Signin</Link>
+        <Link to="/signup">Signup</Link>
+        <Link to="/banned">Banned List</Link>
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
+import requireAuth from '../require-auth';
 import { getBannedList } from '../../selectors';
 // import BannedUser from '../banned-user';
 
@@ -31,6 +32,6 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   actions
-)(BannedList);
+)(requireAuth(BannedList));
 
 // <BannedUser bannedUser={bannedUser} key={bannedUser._id} />

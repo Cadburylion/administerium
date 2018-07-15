@@ -37,20 +37,21 @@ export const signup = (formProps, callback) => async dispatch => {
     dispatch({ type: AUTH_USER, payload: response.data.token });
     localStorage.setItem('token', response.data.token);
 
-    callback();
+    // callback();
   } catch (e) {
     dispatch({ type: AUTH_ERROR, payload: 'Email in use' });
   }
 };
 
 export const signin = (formProps, callback) => async dispatch => {
+  console.log('signin: ', formProps);
   try {
     const response = await axios.post(`${config.baseURL()}/signin`, formProps);
 
     dispatch({ type: AUTH_USER, payload: response.data.token });
     localStorage.setItem('token', response.data.token);
 
-    callback();
+    // callback();
   } catch (e) {
     dispatch({ type: AUTH_ERROR, payload: 'Invalid login credentials' });
   }
