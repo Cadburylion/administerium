@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getAuth } from '../../selectors';
 
 import * as actions from '../../actions';
 
@@ -9,16 +10,20 @@ class Header extends Component {
     return (
       <div className="header">
         <Link to="/">Welcome</Link>
-        <Link to="/signin">Sign In</Link>
-        <Link to="/signup">Sign Up</Link>
-        <Link to="/signedout">Sign Out</Link>
-        <Link to="/banned">Banned List</Link>
+        {!this.props.auth && <Link to="/signin">Sign In</Link>}
+        {!this.props.auth && <Link to="/signup">Sign Up</Link>}
+        {this.props.auth && <Link to="/signout">Sign Out</Link>}
+        {this.props.auth && <Link to="/banned">Banned List</Link>}
       </div>
     );
   }
 }
 
+const mapStateToProps = state => ({
+  auth: getAuth(state)
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   actions
 )(Header);

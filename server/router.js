@@ -3,7 +3,11 @@ const Authentication = require('./backend/controllers/authentication');
 const passportService = require('./backend/services/passport');
 const passport = require('passport');
 
-const requireAuth = passport.authenticate('jwt', { session: false });
+const requireAuth = passport.authenticate('jwt', {
+  successRedirect: '/banned',
+  failureRedirect: '/signin',
+  session: false
+});
 const requireSignin = passport.authenticate('local', { session: false });
 
 module.exports = app => {

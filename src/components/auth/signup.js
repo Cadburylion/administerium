@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 import * as actions from '../../actions';
 
@@ -27,30 +28,36 @@ class Signup extends Component {
   };
   render() {
     return (
-      <div>
-        <form
-          onSubmit={e => this.handleSubmit(e, this.state)}
-          autoComplete="off"
-        >
-          <input
-            id="email"
-            label="Email"
-            type="text"
-            autoComplete="current-password"
-            onChange={this.handleChange('email')}
-          />
-          <input
-            id="password-input"
-            label="Email"
-            type="password"
-            autoComplete="current-password"
-            onChange={this.handleChange('password')}
-          />
-          <button onClick={e => this.handleSubmit(e, this.state)}>
-            Sign up
-          </button>
-        </form>
-      </div>
+      <React.Fragment>
+        {this.props.auth ? (
+          <Redirect to="/banned" />
+        ) : (
+          <div className="signup">
+            <form
+              onSubmit={e => this.handleSubmit(e, this.state)}
+              autoComplete="off"
+            >
+              <input
+                id="email"
+                label="Email"
+                type="text"
+                autoComplete="current-password"
+                onChange={this.handleChange('email')}
+              />
+              <input
+                id="password-input"
+                label="Email"
+                type="password"
+                autoComplete="current-password"
+                onChange={this.handleChange('password')}
+              />
+              <button onClick={e => this.handleSubmit(e, this.state)}>
+                Sign up
+              </button>
+            </form>
+          </div>
+        )}
+      </React.Fragment>
     );
   }
 }

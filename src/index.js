@@ -13,7 +13,7 @@ import BannedSubmitForm from './components/banned-submit-form';
 import store from './lib/store-create';
 import registerServiceWorker from './registerServiceWorker';
 
-import './index.css';
+import './style/main.css';
 
 ReactDOM.render(
   <Provider store={store}>

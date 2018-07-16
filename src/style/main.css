@@ -1,0 +1,19 @@
+@import url('./vars.css');
+@import url('https://fonts.googleapis.com/css?family=Lato:300');
+
+* {
+  text-decoration: none;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: #eee;
+}
+
+form *:focus {
+  border: none;
+  outline: none;
+}
