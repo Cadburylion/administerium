@@ -8,6 +8,9 @@ import { getBannedList } from '../../selectors';
 import BannedUser from '../banned-user';
 
 class BannedList extends Component {
+  componentWillMount() {
+    this.props.clearBannedUsersProp();
+  }
   componentDidMount() {
     this.props.getBannedUsers();
   }

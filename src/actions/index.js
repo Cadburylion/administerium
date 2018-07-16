@@ -7,6 +7,7 @@ import {
   AUTH_USER,
   AUTH_ERROR,
   ADD_BANNED_USER,
+  CLEAR_BANNED_USERS,
   GET_BANNED_USERS_START,
   GET_BANNED_USERS_SUCCESS,
   GET_BANNED_USERS_FAILURE,
@@ -18,6 +19,10 @@ import {
 } from './types';
 
 // Actions
+
+const clearBannedUsers = () => ({
+  type: CLEAR_BANNED_USERS
+});
 const getBannedUsersStart = () => ({
   type: GET_BANNED_USERS_START
 });
@@ -118,6 +123,10 @@ export const getBannedUsers = () => async dispatch => {
   } catch (error) {
     dispatch(getBannedUsersFailure(error));
   }
+};
+
+export const clearBannedUsersProp = () => async dispatch => {
+  dispatch(clearBannedUsers());
 };
 
 export const removeFromBannedList = id => async dispatch => {

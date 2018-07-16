@@ -42,12 +42,6 @@ class Search extends Component {
   }
 }
 
-// {this.props.bannedUserByName.length >= 0
-//   ? this.props.bannedUserByName.map(user => (
-//       <BannedUser key={user._id} bannedUser={user} />
-//     ))
-//   : null}
-
 const mapStateToProps = state => ({
   bannedUserByName: state.bannedUserByName
 });

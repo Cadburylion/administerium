@@ -57,17 +57,17 @@ class TemporaryDrawer extends React.Component {
 
     const sideList = (
       <div className="side-list">
-        <Link to="/app" className="side-list-item-container">
-          <Search className={'side-list-item-icon'} />
-          <div className="side-list-item">Search by name</div>
+        <Link to="/app/banned" className="side-list-item-container">
+          <List className={'side-list-item-icon'} />
+          <div className="side-list-item">Display list</div>
         </Link>
         <Link to="/app/youarebanned" className="side-list-item-container">
           <Send className={'side-list-item-icon'} />
           <div className="side-list-item">Submit new entry</div>
         </Link>
-        <Link to="/app/banned" className="side-list-item-container">
-          <List className={'side-list-item-icon'} />
-          <div className="side-list-item">Display list</div>
+        <Link to="/app" className="side-list-item-container">
+          <Search className={'side-list-item-icon'} />
+          <div className="side-list-item">Search by name</div>
         </Link>
         <Divider />
         {auth && (

@@ -1,4 +1,5 @@
 import {
+  CLEAR_BANNED_USERS,
   GET_BANNED_USERS_START,
   GET_BANNED_USERS_SUCCESS,
   GET_BANNED_USERS_FAILURE
@@ -31,6 +32,8 @@ export default (state = INITIAL_STATE, { type, payload }) => {
         loading: false,
         error: payload
       };
+    case CLEAR_BANNED_USERS:
+      return INITIAL_STATE;
     default:
       return state;
   }

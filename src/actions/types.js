@@ -1,5 +1,7 @@
 export const AUTH_USER = 'auth_user';
 export const AUTH_ERROR = 'auth_error';
+
+export const CLEAR_BANNED_USERS = 'clear_banned_users';
 export const ADD_BANNED_USER = 'add_banned_user';
 export const GET_BANNED_USERS_START = 'GET_BANNED_USERS_START';
 export const GET_BANNED_USERS_SUCCESS = 'GET_BANNED_USERS_SUCESS';
