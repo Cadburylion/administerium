@@ -1,0 +1,37 @@
+@import url('../../style/vars.css');
+
+.search {
+  padding: 20px;
+}
+
+.search-bar {
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-r);
+  width: 100%;
+  max-width: 484px;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 2.5px;
+  background: white;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0 auto;
+}
+
+.search-bar::placeholder {
+  color: rgba(0, 0, 0, 0.15);
+  transition: color 0.2s ease;
+}
+
+.search-bar:focus {
+  outline: none !important;
+  box-shadow: 0px 1px 5px 0px rgba(63, 81, 182, 0.2),
+    0px 2px 2px 0px rgba(63, 81, 182, 0.14),
+    0px 3px 1px -2px rgba(63, 81, 182, 0.12);
+}
+
+.search-bar:focus::placeholder {
+  color: rgba(0, 0, 0, 0);
+}

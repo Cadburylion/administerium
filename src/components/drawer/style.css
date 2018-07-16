@@ -1,0 +1,32 @@
+@import url('../../style/vars.css');
+
+.side-list {
+  width: 250px;
+}
+
+.side-list-item-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.7);
+  background: white;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: background-color 150ms;
+}
+
+.side-list-item-icon {
+  fill: rgba(0, 0, 0, 0.5) !important;
+  width: 1em;
+  height: 1em;
+  margin-right: 16px;
+}
+
+.side-list-item {
+  padding: 0 16px;
+}
+
+.side-list-item-container:hover {
+  background-color: rgba(0.4, 0, 0.2, 0.1);
+}

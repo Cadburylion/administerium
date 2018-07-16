@@ -32,7 +32,7 @@ class Signin extends Component {
     return (
       <React.Fragment>
         {this.props.auth ? (
-          <Redirect to="/banned" />
+          <Redirect to="/" />
         ) : (
           <div className="signin">
             <form

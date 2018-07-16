@@ -10,10 +10,7 @@ export default ({ children }) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <div className="App">
-        <Header />
-        {children}
-      </div>
+      <div className="App">{children}</div>
     </React.Fragment>
   );
 };

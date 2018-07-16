@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import { Route, BrowserRouter } from 'react-router-dom';
 
 import App from './App.js';
+import Main from './components/main';
+import Search from './components/search';
 import Signin from './components/auth/signin';
 import Signup from './components/auth/signup';
 import Signout from './components/auth/signout';
@@ -19,11 +21,8 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <App>
-        <Route path="/signup" component={Signup} />
-        <Route path="/signin" component={Signin} />
-        <Route path="/signout" component={Signout} />
-        <Route path="/banned" component={BannedSubmitForm} />
-        <Route path="/banned" component={BannedList} />
+        <Route exact path="/" component={Main} />
+        <Route exact path="/signin" component={Signin} />
       </App>
     </BrowserRouter>
   </Provider>,
