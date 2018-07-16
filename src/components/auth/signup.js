@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import * as actions from '../../actions';
+import { getAuth } from '../../selectors';
 
 class Signup extends Component {
   state = {
@@ -30,7 +31,7 @@ class Signup extends Component {
     return (
       <React.Fragment>
         {this.props.auth ? (
-          <Redirect to="/banned" />
+          <Redirect to="/app" />
         ) : (
           <div className="signup">
             <form
@@ -55,6 +56,9 @@ class Signup extends Component {
                 Sign up
               </button>
             </form>
+            <div>
+              Already have an account? <Link to="/signin">Sign in!</Link>
+            </div>
           </div>
         )}
       </React.Fragment>
@@ -62,7 +66,11 @@ class Signup extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  auth: getAuth(state)
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   actions
 )(Signup);

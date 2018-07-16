@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+import { getAuth } from '../../selectors';
+
 export default ChildComponent => {
   class ComposedComponent extends Component {
     // Our component just got rendered
@@ -12,7 +15,7 @@ export default ChildComponent => {
     }
     shouldNavigateAway() {
       if (!this.props.auth) {
-        this.props.history.push('/signin');
+        this.props.history.push('/signup');
       }
     }
     render() {
@@ -20,7 +23,7 @@ export default ChildComponent => {
     }
   }
   function mapStateToProps(state) {
-    return { auth: state.auth.authenticated };
+    return { auth: getAuth(state) };
   }
   return connect(mapStateToProps)(ComposedComponent);
 };

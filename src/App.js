@@ -1,7 +1,5 @@
 import React from 'react';
 
-import Header from './components/header';
-
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import './App.css';

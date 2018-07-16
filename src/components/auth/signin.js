@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import { getAuth } from '../../selectors';
 
@@ -32,7 +32,7 @@ class Signin extends Component {
     return (
       <React.Fragment>
         {this.props.auth ? (
-          <Redirect to="/" />
+          <Redirect to="/app" />
         ) : (
           <div className="signin">
             <form
@@ -57,6 +57,9 @@ class Signin extends Component {
                 Sign in
               </button>
             </form>
+            <div>
+              New user? <Link to="/signup">Sign up!</Link>
+            </div>
           </div>
         )}
       </React.Fragment>

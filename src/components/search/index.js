@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
 
-// import BannedUser from '../banned-user';
+import BannedUser from '../banned-user';
 
 import './style.css';
 
@@ -21,6 +21,7 @@ class Search extends Component {
     });
   };
   render() {
+    const { bannedUserByName } = this.props;
     return (
       <div className="search">
         <form onSubmit={e => this.handleSubmit(e)}>
@@ -31,6 +32,11 @@ class Search extends Component {
             onChange={this.handleChange}
           />
         </form>
+        {bannedUserByName &&
+          bannedUserByName.length > 0 &&
+          bannedUserByName.map(bannedUser => (
+            <BannedUser key={bannedUser._id} user={bannedUser} />
+          ))}
       </div>
     );
   }

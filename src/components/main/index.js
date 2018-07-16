@@ -4,8 +4,6 @@ import { Route } from 'react-router-dom';
 
 import Header from '../header';
 import Search from '../search';
-import Signin from '../auth/signin';
-import Signup from '../auth/signup';
 import Signout from '../auth/signout';
 import BannedList from '../banned-list';
 import BannedSubmitForm from '../banned-submit-form';
@@ -18,10 +16,10 @@ class Main extends Component {
     return (
       <main>
         <Header />
-        <Route exact path="/" component={Search} />
-        <Route path="/signout" component={Signout} />
-        <Route path="/banned" component={BannedSubmitForm} />
-        <Route path="/banned" component={BannedList} />
+        <Route exact path="/app" component={Search} />
+        <Route exact path="/app/youarebanned" component={BannedSubmitForm} />
+        <Route exact path="/app/signout" component={Signout} />
+        <Route exact path="/app/banned" component={BannedList} />
       </main>
     );
   }
