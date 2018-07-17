@@ -1,0 +1,53 @@
+@import url('../../style/vars.css');
+
+.signup-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  color: var(--color-white);
+  border-top-left-radius: 2.5px;
+  border-top-right-radius: 2.5px;
+  background: var(--color-primary);
+  margin: 0 -1px;
+}
+
+.signup-banner h1 {
+  margin: 0;
+}
+
+.signup-subheader {
+  font-weight: 500;
+  font-size: var(--font-r);
+  color: #808080;
+  text-align: center;
+}
+
+.signup-body {
+  padding: 10px 40px;
+  border-bottom-left-radius: 2.5px;
+  border-bottom-right-radius: 2.5px;
+}
+
+.signup-button-container {
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+.signup-button-container button {
+  width: 100%;
+}
+
+.switch-validation-message {
+  color: #808080;
+  padding: 20px;
+}
+
+@media only screen and (min-width: 400px) {
+  .signup-content {
+    max-width: 355px;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+      0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    background: white;
+    margin: 10vh auto;
+  }
+}
