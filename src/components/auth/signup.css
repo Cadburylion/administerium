@@ -43,7 +43,7 @@
   padding: 20px;
 }
 
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 460px) {
   .signup-content {
     max-width: 355px;
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
