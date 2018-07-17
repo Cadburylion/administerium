@@ -7,6 +7,8 @@ import { getBannedList } from '../../selectors';
 
 import BannedUser from '../banned-user';
 
+import './style.css';
+
 class BannedList extends Component {
   componentWillMount() {
     this.props.clearBannedUsersProp();
@@ -18,11 +20,13 @@ class BannedList extends Component {
   render() {
     return (
       <React.Fragment>
-        {this.props.bannedList &&
-          this.props.bannedList.length > 0 &&
-          this.props.bannedList.map(bannedUser => (
-            <BannedUser key={bannedUser._id} user={bannedUser} />
-          ))}
+        <div className="banned-list">
+          {this.props.bannedList &&
+            this.props.bannedList.length > 0 &&
+            this.props.bannedList.map(bannedUser => (
+              <BannedUser key={bannedUser._id} user={bannedUser} />
+            ))}
+        </div>
       </React.Fragment>
     );
   }

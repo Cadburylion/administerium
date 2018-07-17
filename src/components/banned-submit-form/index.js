@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
 
+import './style.css';
+
 class BannedSubmitForm extends Component {
   state = {
     name: '',

@@ -10,7 +10,12 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
   root: {
-    flexGrow: 1
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    flexGrow: 1,
+    zIndex: 10
   },
   title: {
     flexGrow: 1,

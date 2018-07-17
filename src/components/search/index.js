@@ -24,19 +24,23 @@ class Search extends Component {
     const { bannedUserByName } = this.props;
     return (
       <div className="search">
-        <form onSubmit={e => this.handleSubmit(e)}>
-          <input
-            placeholder="search by name"
-            type="text"
-            className="search-bar"
-            onChange={this.handleChange}
-          />
-        </form>
-        {bannedUserByName &&
-          bannedUserByName.length > 0 &&
-          bannedUserByName.map(bannedUser => (
-            <BannedUser key={bannedUser._id} user={bannedUser} />
-          ))}
+        <div className="search-bar-container">
+          <form onSubmit={e => this.handleSubmit(e)}>
+            <input
+              placeholder="search by name"
+              type="text"
+              className="search-bar"
+              onChange={this.handleChange}
+            />
+          </form>
+        </div>
+        <div className="search-results-container">
+          {bannedUserByName &&
+            bannedUserByName.length > 0 &&
+            bannedUserByName.map(bannedUser => (
+              <BannedUser key={bannedUser._id} user={bannedUser} />
+            ))}
+        </div>
       </div>
     );
   }

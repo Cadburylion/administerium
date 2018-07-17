@@ -1,0 +1,13 @@
+.removed-for-description {
+  text-align: left;
+  padding: 10px 5px;
+  border: 1px solid #ededed;
+}
+
+.remove-user-button-container {
+  align-self: flex-end;
+}
+
+.banned-for-heading {
+  color: rgba(0, 0, 0, 0.54);
+}
