@@ -38,6 +38,7 @@
 }
 
 .switch-validation-message {
+  font-size: 14px;
   color: #808080;
   padding: 20px;
 }
