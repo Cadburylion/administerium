@@ -14,7 +14,7 @@ import { getAuth } from '../../selectors';
 class Main extends Component {
   render() {
     return (
-      <main>
+      <main style={{ overflowX: 'hidden' }}>
         <Header />
         <Route exact path="/app" component={Search} />
         <Route exact path="/app/youarebanned" component={BannedSubmitForm} />

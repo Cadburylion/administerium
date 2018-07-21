@@ -1,3 +1,19 @@
 .banned-submit-form {
   margin-top: 76px;
 }
+
+.banned-submit-form-form {
+  display: grid;
+  padding: 0 20px;
+}
+
+.banned-submit-form-form {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px; */
+}
+
+.banned-submit-form-button {
+  margin-top: 20px;
+}

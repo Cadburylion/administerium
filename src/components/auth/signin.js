@@ -12,6 +12,7 @@ import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 
 import './signup.css';
+
 const styles = theme => ({
   container: {
     display: 'flex',

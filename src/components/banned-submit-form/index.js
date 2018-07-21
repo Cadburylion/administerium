@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
 
+import View from './view';
+
 import './style.css';
 
 class BannedSubmitForm extends Component {
@@ -19,14 +21,14 @@ class BannedSubmitForm extends Component {
     });
   };
 
-  handleSubmit = form => event => {
+  handleSubmit = event => {
     event.preventDefault();
 
     const formProps = {
-      name: form.name,
-      bannedBy: form.bannedBy,
-      bannedFor: form.bannedFor,
-      date: form.date
+      name: this.state.name,
+      bannedBy: this.state.bannedBy,
+      bannedFor: this.state.bannedFor,
+      date: this.state.date
     };
 
     this.props.addBannedUser(formProps);
@@ -40,45 +42,14 @@ class BannedSubmitForm extends Component {
 
   render() {
     return (
-      <div className="banned-submit-form">
-        <form onSubmit={this.handleSubmit(this.state)} autoComplete="off">
-          <input
-            id="name"
-            label="name"
-            type="text"
-            value={this.state.name}
-            onChange={this.handleChange('name')}
-            autoComplete="current-password"
-          />
-          <input
-            id="banned-by"
-            label="banned-by"
-            type="text"
-            value={this.state.bannedBy}
-            onChange={this.handleChange('bannedBy')}
-            autoComplete="current-password"
-          />
-          <input
-            id="banned-for"
-            label="banned-for"
-            type="text"
-            value={this.state.bannedFor}
-            onChange={this.handleChange('bannedFor')}
-            autoComplete="current-password"
-          />
-          <input
-            id="date"
-            label="date"
-            type="text"
-            value={this.state.date}
-            onChange={this.handleChange('date')}
-            autoComplete="current-password"
-          />
-          <button onClick={e => this.handleSubmit(e, this.state)}>
-            Add to banned list
-          </button>
-        </form>
-      </div>
+      <View
+        name={this.state.name}
+        date={this.state.date}
+        bannedBy={this.state.bannedBy}
+        bannedFor={this.state.bannedFor}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+      />
     );
   }
 }
