@@ -3,21 +3,31 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
 
+import moment from 'moment';
+
 import View from './view';
 
 import './style.css';
+
+let momentDate = moment();
 
 class BannedSubmitForm extends Component {
   state = {
     name: '',
     bannedBy: '',
     bannedFor: '',
-    date: ''
+    date: momentDate
   };
 
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value
+    });
+  };
+
+  handleDateChange = date => {
+    this.setState({
+      date: moment(date)
     });
   };
 
@@ -36,7 +46,7 @@ class BannedSubmitForm extends Component {
       name: '',
       bannedBy: '',
       bannedFor: '',
-      date: ''
+      date: momentDate
     });
   };
 
@@ -44,11 +54,12 @@ class BannedSubmitForm extends Component {
     return (
       <View
         name={this.state.name}
-        date={this.state.date}
+        date={moment(this.state.date)}
         bannedBy={this.state.bannedBy}
         bannedFor={this.state.bannedFor}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
+        handleDateChange={this.handleDateChange}
       />
     );
   }

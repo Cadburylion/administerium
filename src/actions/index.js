@@ -62,7 +62,6 @@ export const signup = (formProps, callback) => async dispatch => {
 };
 
 export const signin = (formProps, callback) => async dispatch => {
-  console.log('signin: ', formProps);
   try {
     const response = await axios.post(`${config.baseURL()}/signin`, formProps);
 
@@ -90,7 +89,6 @@ export const addBannedUser = (formProps, callback) => async dispatch => {
     (toastId = toast('Adding member to banned list...', { autoClose: false }));
 
   toastNotify();
-  console.log('formProps: ', formProps);
   try {
     const response = await axios.post(
       `${config.baseURL()}/bannedUsers`,

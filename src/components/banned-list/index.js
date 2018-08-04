@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
 import requireAuth from '../require-auth';
-import { getBannedList } from '../../selectors';
+import {
+  getBannedList,
+  getBannedListAscByDate,
+  getBannedListDescByDate
+} from '../../selectors';
 
 import BannedUser from '../banned-user';
 
@@ -21,9 +25,9 @@ class BannedList extends Component {
     return (
       <React.Fragment>
         <div className="banned-list">
-          {this.props.bannedList &&
-            this.props.bannedList.length > 0 &&
-            this.props.bannedList.map(bannedUser => (
+          {this.props.bannedListDesc &&
+            this.props.bannedListDesc.length > 0 &&
+            this.props.bannedListDesc.map(bannedUser => (
               <BannedUser key={bannedUser._id} user={bannedUser} />
             ))}
         </div>
@@ -33,7 +37,9 @@ class BannedList extends Component {
 }
 
 const mapStateToProps = state => ({
-  bannedList: getBannedList(state)
+  bannedList: getBannedList(state),
+  bannedListAsc: getBannedListAscByDate(state),
+  bannedListDesc: getBannedListDescByDate(state)
 });
 
 export default connect(

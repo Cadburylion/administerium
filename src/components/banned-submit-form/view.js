@@ -5,6 +5,12 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import classNames from 'classnames';
 
+import moment from 'moment';
+
+import DatePicker from 'react-datepicker';
+
+import 'react-datepicker/dist/react-datepicker.css';
+
 import './style.css';
 
 const styles = theme => ({
@@ -22,7 +28,8 @@ class View extends React.Component {
       bannedBy,
       bannedFor,
       handleChange,
-      handleSubmit
+      handleSubmit,
+      handleDateChange
     } = this.props;
 
     return (
@@ -65,18 +72,18 @@ class View extends React.Component {
                 autoComplete="current-password"
                 margin="normal"
               />
-              <TextField
-                id="date"
-                label="Date"
-                type="date"
-                className={classNames(classes.textField)}
-                value={date}
-                onChange={handleChange('date')}
-                InputLabelProps={{
-                  shrink: true
-                }}
-                margin="normal"
-              />
+              <div className="grid-align-left">
+                <div className="date-input-container" tabIndex="0">
+                  <label htmlFor="date">Date</label>
+                  <DatePicker
+                    id="date"
+                    selected={date}
+                    onChange={handleDateChange}
+                    value={moment(date).format('DD MMM YYYY')}
+                  />
+                  <hr />
+                </div>
+              </div>
             </form>
             <div className="banned-submit-form-button">
               <Button

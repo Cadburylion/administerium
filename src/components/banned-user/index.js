@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
 
+import moment from 'moment';
+
 import './style.css';
 
 const styles = theme => ({
@@ -22,13 +24,15 @@ const styles = theme => ({
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
-    flexBasis: '60%',
+    flexBasis: '50%',
     flexShrink: 0,
-    textAlign: 'left'
+    textAlign: 'left',
+    whiteSpace: 'nowrap'
   },
   secondaryHeading: {
     fontSize: theme.typography.pxToRem(15),
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
+    whiteSpace: 'nowrap'
   }
 });
 
@@ -44,7 +48,7 @@ class BannedUser extends Component {
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Typography className={classes.heading}>{user.name}</Typography>
           <Typography className={classes.secondaryHeading}>
-            {user.date}
+            {moment(user.date).format('DD MMMM YYYY')}
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails style={{ flexDirection: 'column' }}>
