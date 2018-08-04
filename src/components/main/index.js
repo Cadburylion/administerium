@@ -14,7 +14,14 @@ import { getAuth } from '../../selectors';
 class Main extends Component {
   render() {
     return (
-      <main style={{ maxWidth: '680px', margin: '0 auto' }}>
+      <main
+        style={{
+          maxWidth: '680px',
+          margin: '0 auto',
+          minHeight: '100vh',
+          overflowX: 'hidden'
+        }}
+      >
         <Header />
         <Route exact path="/app" component={BannedList} />
         <Route exact path="/app/youarebanned" component={BannedSubmitForm} />
