@@ -1,6 +1,7 @@
 const express = require('express');
 const User = require('../models/bannedUserModel');
 const bannedUser = express.Router();
+const s3upload = require('../middleware/s3-upload-middleware');
 
 bannedUser
   .route('/')
@@ -9,7 +10,9 @@ bannedUser
       res.json(bannedUsers);
     });
   }) // get
-  .post((req, res) => {
+  .post(s3upload('image'), (req, res) => {
+    if (req.s3Data) req.body.image = req.s3Data.Location;
+    console.log('req.body: ', req.body);
     let bannedUser = new User(req.body);
     bannedUser.save();
     res.status(201).send(bannedUser);

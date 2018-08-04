@@ -6,7 +6,8 @@ const bannedUserModel = new Schema({
   name: { type: String, required: true },
   date: { type: String, required: true },
   bannedFor: { type: String, required: true },
-  bannedBy: { type: String }
+  bannedBy: { type: String },
+  image: { type: String }
 });
 
 module.exports = mongoose.model('bannedUsers', bannedUserModel);

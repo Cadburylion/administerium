@@ -6,7 +6,9 @@ import * as config from '../lib/config';
 import {
   AUTH_USER,
   AUTH_ERROR,
-  ADD_BANNED_USER,
+  ADD_BANNED_USER_START,
+  ADD_BANNED_USER_SUCCESS,
+  ADD_BANNED_USER_FAILURE,
   CLEAR_BANNED_USERS,
   GET_BANNED_USERS_START,
   GET_BANNED_USERS_SUCCESS,
@@ -19,6 +21,20 @@ import {
 } from './types';
 
 // Actions
+
+const addBannedUserStart = () => ({
+  type: ADD_BANNED_USER_START
+});
+
+const addBannedUserSuccess = res => ({
+  type: ADD_BANNED_USER_SUCCESS,
+  payload: res
+});
+
+const addBannedUserFailure = error => ({
+  type: ADD_BANNED_USER_FAILURE,
+  payload: error
+});
 
 const clearBannedUsers = () => ({
   type: CLEAR_BANNED_USERS
@@ -89,18 +105,24 @@ export const addBannedUser = (formProps, callback) => async dispatch => {
     (toastId = toast('Adding member to banned list...', { autoClose: false }));
 
   toastNotify();
+  let fd = new FormData();
+  fd.append('name', formProps.name);
+  fd.append('bannedBy', formProps.bannedBy);
+  fd.append('bannedFor', formProps.bannedFor);
+  fd.append('date', formProps.date);
+  fd.append('image', formProps.image, formProps.image.name);
+  dispatch(addBannedUserStart());
   try {
-    const response = await axios.post(
-      `${config.baseURL()}/bannedUsers`,
-      formProps
-    );
+    const response = await axios.post(`${config.baseURL()}/bannedUsers`, fd);
 
-    dispatch({ type: ADD_BANNED_USER, payload: response.data });
+    dispatch(addBannedUserSuccess(response.data));
 
     dispatch(getBannedUsers());
-    callback(toastId);
-  } catch (e) {
-    dispatch({ type: ADD_BANNED_USER, payload: 'Invalid submission' });
+    if (callback) {
+      callback(toastId);
+    }
+  } catch (error) {
+    dispatch(addBannedUserFailure(error));
   }
 };
 
