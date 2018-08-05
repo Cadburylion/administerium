@@ -60,6 +60,11 @@ class BannedUser extends Component {
               <p style={{ fontSize: 14 }}>Reason:</p>
             </div>
             <p>{user.bannedFor}</p>
+            {user.images &&
+              user.images.length > 0 &&
+              user.images.map((image, index) => (
+                <img src={image} alt="screenshot" key={image + index} />
+              ))}
           </div>
 
           <div

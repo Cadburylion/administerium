@@ -17,7 +17,8 @@ class BannedSubmitForm extends Component {
     bannedBy: '',
     bannedFor: '',
     date: momentDate,
-    image: null
+    image: null,
+    images: null
   };
 
   handleChange = name => event => {
@@ -38,6 +39,12 @@ class BannedSubmitForm extends Component {
     });
   };
 
+  handleFilesUpload = event => {
+    this.setState({
+      images: event.target.files
+    });
+  };
+
   handleSubmit = event => {
     event.preventDefault();
 
@@ -46,7 +53,8 @@ class BannedSubmitForm extends Component {
       bannedBy: this.state.bannedBy,
       bannedFor: this.state.bannedFor,
       date: this.state.date,
-      image: this.state.image
+      image: this.state.image,
+      images: this.state.images
     };
 
     this.props.addBannedUser(formProps);
@@ -70,6 +78,7 @@ class BannedSubmitForm extends Component {
         handleSubmit={this.handleSubmit}
         handleFileSelect={this.handleFileSelect}
         handleDateChange={this.handleDateChange}
+        handleFilesUpload={this.handleFilesUpload}
       />
     );
   }

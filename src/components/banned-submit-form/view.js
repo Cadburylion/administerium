@@ -36,7 +36,8 @@ class View extends React.Component {
       handleChange,
       handleSubmit,
       handleFileSelect,
-      handleDateChange
+      handleDateChange,
+      handleFilesUpload
     } = this.props;
 
     return (
@@ -99,6 +100,23 @@ class View extends React.Component {
                 onChange={handleFileSelect}
               />
               <label htmlFor="raised-button-file">
+                <Button
+                  raised="true"
+                  component="span"
+                  className={classes.button}
+                >
+                  Upload Image
+                </Button>
+              </label>
+              <input
+                accept="image/*"
+                className={classes.input}
+                id="raised-button-files"
+                type="file"
+                multiple
+                onChange={handleFilesUpload}
+              />
+              <label htmlFor="raised-button-files">
                 <Button
                   raised="true"
                   component="span"

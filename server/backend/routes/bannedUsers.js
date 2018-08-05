@@ -10,9 +10,10 @@ bannedUser
       res.json(bannedUsers);
     });
   }) // get
-  .post(s3upload('image'), (req, res) => {
-    if (req.s3Data) req.body.image = req.s3Data.Location;
-    console.log('req.body: ', req.body);
+  .post(s3upload('images'), (req, res) => {
+    if (req.files) {
+      req.body.images = req.files.map(file => file.location);
+    }
     let bannedUser = new User(req.body);
     bannedUser.save();
     res.status(201).send(bannedUser);
