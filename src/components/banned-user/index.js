@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 
 import * as actions from '../../actions';
 
+import Gallery from 'react-grid-gallery';
+
 import { withStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
@@ -43,6 +45,17 @@ class BannedUser extends Component {
 
   render() {
     const { user, classes } = this.props;
+    let images;
+    if (user.images && user.images.length > 0) {
+      images = user.images.map(image => {
+        return {
+          src: image,
+          thumbnail: image
+          // thumbnailWidth: 320,
+          // thumbnailHeight: 174
+        };
+      });
+    }
     return (
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -61,10 +74,7 @@ class BannedUser extends Component {
             </div>
             <p>{user.bannedFor}</p>
             {user.images &&
-              user.images.length > 0 &&
-              user.images.map((image, index) => (
-                <img src={image} alt="screenshot" key={image + index} />
-              ))}
+              user.images.length > 0 && <Gallery images={images} />}
           </div>
 
           <div
