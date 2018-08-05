@@ -51,8 +51,6 @@ class BannedUser extends Component {
         return {
           src: image,
           thumbnail: image
-          // thumbnailWidth: 320,
-          // thumbnailHeight: 174
         };
       });
     }
@@ -61,7 +59,7 @@ class BannedUser extends Component {
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Typography className={classes.heading}>{user.name}</Typography>
           <Typography className={classes.secondaryHeading}>
-            {moment(user.date).format('DD MMMM YYYY')}
+            {moment(user.date).format('MMMM Do YYYY')}
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails style={{ flexDirection: 'column' }}>

@@ -29,7 +29,7 @@ class BannedSubmitForm extends Component {
 
   handleDateChange = date => {
     this.setState({
-      date: moment(date)
+      date: date
     });
   };
 
@@ -67,11 +67,10 @@ class BannedSubmitForm extends Component {
   };
 
   render() {
-    console.log('banned submit form state: ', this.state);
     return (
       <View
         name={this.state.name}
-        date={moment(this.state.date)}
+        date={this.state.date}
         bannedBy={this.state.bannedBy}
         bannedFor={this.state.bannedFor}
         handleChange={this.handleChange}

@@ -110,8 +110,10 @@ export const addBannedUser = (formProps, callback) => async dispatch => {
   fd.append('bannedBy', formProps.bannedBy);
   fd.append('bannedFor', formProps.bannedFor);
   fd.append('date', formProps.date);
-  for (let i = 0; i < formProps.images.length; i++) {
-    fd.append('images', formProps.images[i], formProps.images[i].name);
+  if (formProps.images && formProps.images.length > 0) {
+    for (let i = 0; i < formProps.images.length; i++) {
+      fd.append('images', formProps.images[i], formProps.images[i].name);
+    }
   }
 
   dispatch(addBannedUserStart());

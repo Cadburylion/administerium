@@ -87,7 +87,7 @@ class View extends React.Component {
                     id="date"
                     selected={date}
                     onChange={handleDateChange}
-                    value={moment(date).format('DD MMM YYYY')}
+                    value={moment(date).format('MMMM Do YYYY')}
                   />
                   <hr />
                 </div>
