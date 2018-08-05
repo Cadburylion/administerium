@@ -17,9 +17,6 @@ const styles = theme => ({
   textField: {
     width: '100%'
   },
-  button: {
-    margin: theme.spacing.unit
-  },
   input: {
     display: 'none'
   }
@@ -35,7 +32,6 @@ class View extends React.Component {
       bannedFor,
       handleChange,
       handleSubmit,
-      handleFileSelect,
       handleDateChange,
       handleFilesUpload
     } = this.props;
@@ -73,7 +69,7 @@ class View extends React.Component {
                 type="text"
                 required
                 multiline
-                rowsMax="6"
+                rows="4"
                 className={classNames(classes.textField)}
                 value={bannedFor}
                 onChange={handleChange('bannedFor')}
@@ -92,22 +88,8 @@ class View extends React.Component {
                   <hr />
                 </div>
               </div>
-              <input
-                accept="image/*"
-                className={classes.input}
-                id="raised-button-file"
-                type="file"
-                onChange={handleFileSelect}
-              />
-              <label htmlFor="raised-button-file">
-                <Button
-                  raised="true"
-                  component="span"
-                  className={classes.button}
-                >
-                  Upload Image
-                </Button>
-              </label>
+            </form>
+            <div className="banned-submit-form-buttons">
               <input
                 accept="image/*"
                 className={classes.input}
@@ -118,17 +100,16 @@ class View extends React.Component {
               />
               <label htmlFor="raised-button-files">
                 <Button
+                  size="small"
                   raised="true"
+                  variant="contained"
                   component="span"
-                  className={classes.button}
                 >
                   Upload Images
                 </Button>
               </label>
-            </form>
-            <div className="banned-submit-form-button">
               <Button
-                size="large"
+                size="small"
                 color="primary"
                 variant="contained"
                 onClick={handleSubmit}

@@ -39,8 +39,8 @@ const styles = theme => ({
 });
 
 class BannedUser extends Component {
-  handleRemoveUser = id => {
-    this.props.removeFromBannedList(id);
+  handleRemoveUser = (id, images) => {
+    this.props.removeFromBannedList(id, images);
   };
 
   render() {
@@ -77,7 +77,7 @@ class BannedUser extends Component {
 
           <div
             className="remove-user-button-container"
-            onClick={() => this.handleRemoveUser(user._id)}
+            onClick={() => this.handleRemoveUser(user._id, user.images)}
           >
             <Button size="small" color="secondary" variant="contained">
               remove

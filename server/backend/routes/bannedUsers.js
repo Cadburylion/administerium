@@ -2,6 +2,7 @@ const express = require('express');
 const User = require('../models/bannedUserModel');
 const bannedUser = express.Router();
 const s3upload = require('../middleware/s3-upload-middleware');
+const deleteImages = require('../middleware/s3-delete-middleware');
 
 bannedUser
   .route('/')
@@ -51,7 +52,8 @@ bannedUser
     req.bannedUser.save();
     res.json(req.bannedUser);
   }) // patch
-  .delete((req, res) => {
+  .post((req, res) => {
+    deleteImages(req.body);
     req.bannedUser.remove(err => {
       if (err) {
         res.status(500).send(err);

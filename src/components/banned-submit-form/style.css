@@ -7,14 +7,12 @@
   padding: 0 20px;
 }
 
-.banned-submit-form-form {
-  /* display: flex;
-  flex-direction: column;
+.banned-submit-form-buttons {
+  display: grid;
+  grid-auto-flow: column;
   align-items: center;
-  padding: 10px; */
-}
-
-.banned-submit-form-button {
+  justify-content: center;
+  grid-column-gap: 15px;
   margin-top: 20px;
 }
 
@@ -24,7 +22,7 @@
   position: relative;
   height: 48px;
   border-bottom: 1px solid grey;
-  margin-top: 35px;
+  margin-top: 15px;
   margin-bottom: 8px;
 }
 

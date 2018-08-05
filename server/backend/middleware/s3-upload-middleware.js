@@ -16,7 +16,7 @@ const upload = multer({
     bucket: process.env.AWS_BUCKET,
     key: (req, file, cb) => {
       console.log(file);
-      cb(null, file.originalname);
+      cb(null, Date.now() + file.originalname);
     }
   })
 });

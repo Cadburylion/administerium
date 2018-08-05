@@ -154,7 +154,7 @@ export const clearBannedUsersProp = () => async dispatch => {
   dispatch(clearBannedUsers());
 };
 
-export const removeFromBannedList = id => async dispatch => {
+export const removeFromBannedList = (id, images) => async dispatch => {
   let toastId = null;
   let toastNotify = () =>
     (toastId = toast('Removing member from banned list...', {
@@ -164,9 +164,11 @@ export const removeFromBannedList = id => async dispatch => {
   toastNotify();
   dispatch(removeFromBannedListStart());
   try {
-    const response = await axios.delete(
-      `${config.baseURL()}/bannedUsers/${id}`
+    const response = await axios.post(
+      `${config.baseURL()}/bannedUsers/${id}`,
+      images
     );
+    // deleteImages(images);
     dispatch(removeFromBannedListSuccess(response.status));
     toast.update(toastId, {
       render: 'Member removed from banned list',

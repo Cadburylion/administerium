@@ -33,12 +33,6 @@ class BannedSubmitForm extends Component {
     });
   };
 
-  handleFileSelect = event => {
-    this.setState({
-      image: event.target.files[0]
-    });
-  };
-
   handleFilesUpload = event => {
     this.setState({
       images: event.target.files
