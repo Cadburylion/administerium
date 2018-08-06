@@ -20,6 +20,7 @@ function getModalStyle() {
     left: `${left}%`,
     transform: `translate(-${left}%, -${left}%)`,
     maxHeight: '85vh',
+    maxWidth: '90vw',
     overflowX: 'auto'
   };
 }
