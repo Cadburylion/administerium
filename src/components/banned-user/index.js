@@ -5,7 +5,11 @@ import PropTypes from 'prop-types';
 
 import * as actions from '../../actions';
 
+import Modal from '../common/modal';
+import MyButton from '../common/my-button';
+
 import Gallery from 'react-grid-gallery';
+import moment from 'moment';
 
 import { withStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -13,9 +17,6 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Button from '@material-ui/core/Button';
-
-import moment from 'moment';
 
 import './style.css';
 
@@ -71,17 +72,22 @@ class BannedUser extends Component {
               <p style={{ fontSize: 14 }}>Reason:</p>
             </div>
             <p>{user.bannedFor}</p>
-            {user.images &&
-              user.images.length > 0 && <Gallery images={images} />}
           </div>
 
-          <div
-            className="remove-user-button-container"
-            onClick={() => this.handleRemoveUser(user._id, user.images)}
-          >
-            <Button size="small" color="secondary" variant="contained">
-              remove
-            </Button>
+          <div className="banned-user-footer">
+            {user.images &&
+              user.images.length > 0 && (
+                <Modal title="Screenshots" buttonTitle="Screenshots">
+                  {user.images &&
+                    user.images.length > 0 && <Gallery images={images} />}
+                </Modal>
+              )}
+
+            <div onClick={() => this.handleRemoveUser(user._id, user.images)}>
+              <MyButton small secondary>
+                Remove
+              </MyButton>
+            </div>
           </div>
         </ExpansionPanelDetails>
       </ExpansionPanel>

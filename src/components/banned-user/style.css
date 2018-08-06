@@ -5,10 +5,13 @@
   margin-bottom: 20px;
 }
 
-.remove-user-button-container {
-  align-self: flex-end;
-}
-
 .banned-for-heading {
   color: rgba(0, 0, 0, 0.54);
+}
+
+.banned-user-footer {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: flex-end;
+  grid-column-gap: 15px;
 }
