@@ -22,7 +22,7 @@ const upload = multer({
 });
 
 module.exports = fieldName => (req, res, next) => {
-  upload.array(fieldName, 12)(req, res, err => {
+  upload.array(fieldName, 36)(req, res, err => {
     if (err) return next(err);
     if (!req.file) return next();
   });
