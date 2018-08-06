@@ -7,6 +7,10 @@
   background: var(--color-primary);
 }
 
+.header-title {
+  background: var(--color-primary);
+}
+
 .header-content {
   display: flex;
   align-items: center;

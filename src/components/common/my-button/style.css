@@ -38,7 +38,7 @@
   color: white;
 }
 .my-button.primary:hover {
-  background-color: var(--color-blue-d);
+  background-color: var(--color-primary-d);
 }
 
 .my-button.secondary {
@@ -48,7 +48,7 @@
   color: white;
 }
 .my-button.secondary:hover {
-  background-color: var(--color-red-d);
+  background-color: var(--color-secondary-d);
 }
 
 .my-button.success {

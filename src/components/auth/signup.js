@@ -6,8 +6,9 @@ import { Link, Redirect } from 'react-router-dom';
 import * as actions from '../../actions';
 import { getAuth } from '../../selectors';
 
+import MyButton from '../common/my-button';
+
 import isEmail from 'validator/lib/isEmail';
-import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -95,14 +96,9 @@ class Signup extends Component {
                     margin="normal"
                   />
                   <div className="signup-button-container">
-                    <Button
-                      color="primary"
-                      variant="contained"
-                      type="submit"
-                      onClick={this.handleSubmit}
-                    >
+                    <MyButton primary type="submit" onClick={this.handleSubmit}>
                       Sign up
-                    </Button>
+                    </MyButton>
                   </div>
                 </form>
               </div>

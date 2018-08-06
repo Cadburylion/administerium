@@ -8,6 +8,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
+import './style.css';
+
 const styles = {
   root: {
     position: 'fixed',
@@ -32,7 +34,7 @@ function Header(props) {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className="header-title">
           <Drawer />
           <Typography variant="title" color="inherit" className={classes.title}>
             Administerium
